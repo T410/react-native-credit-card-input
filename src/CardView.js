@@ -122,6 +122,7 @@ const s = StyleSheet.create({
 			imageBack,
 			scale,
 			fontFamily,
+			size = { width: 300, height: 190 },
 		} = this.props;
 
 		const Icons = { ...defaultIcons, ...customIcons };
@@ -129,13 +130,13 @@ const s = StyleSheet.create({
 		const shouldFlip = !isAmex && focused === "cvc";
 
 		const containerSize = {
-			...BASE_SIZE,
-			height: BASE_SIZE.height * scale,
+			...size,
+			height: size.height * scale,
 		};
 		const transform = {
 			transform: [
 				{ scale },
-				{ translateY: (BASE_SIZE.height * (scale - 1)) / 2 },
+				{ translateY: (size.height * (scale - 1)) / 1 },
 			],
 		};
 
@@ -151,7 +152,7 @@ const s = StyleSheet.create({
 					flip={shouldFlip}
 				>
 					<ImageBackground
-						style={[BASE_SIZE, s.cardFace, transform]}
+						style={[size, s.cardFace, transform]}
 						source={imageFront}
 					>
 						<Image style={[s.icon]} source={Icons[brand]} />
@@ -215,7 +216,7 @@ const s = StyleSheet.create({
 						)}
 					</ImageBackground>
 					<ImageBackground
-						style={[BASE_SIZE, s.cardFace, transform]}
+						style={[size, s.cardFace, transform]}
 						source={imageBack}
 					>
 						<Text
