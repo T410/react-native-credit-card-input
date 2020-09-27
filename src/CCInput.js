@@ -95,6 +95,7 @@ export default class CCInput extends Component {
 						ref="input"
 						{...additionalInputProps}
 						keyboardType={keyboardType}
+						returnKeyType="done"
 						autoCapitalise="words"
 						autoCorrect={false}
 						style={[
